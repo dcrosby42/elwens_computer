@@ -50,6 +50,7 @@
 		<!-- SIDE MENU ================================================= -->
 
 		<div id="left-menu" class="lcars-column start-space lcars-u-1">
+      <div class="lcars-element">1234</div>
 			<!-- FILLER -->
 			<div class="lcars-bar lcars-u-1 lcars-neon-carrot-bg"></div>
 		</div>
@@ -69,7 +70,16 @@
 		<div id="container">
 			<!-- COLUMN LAYOUT -->
 			<div class="lcars-column lcars-u-5">
-        {{ message }}
+
+        <p>{{ message }}</p>
+        <ol>
+          <todo-item
+            v-for="item in todos"
+            v-bind:todo="item"
+            v-bind:key="item.text"
+          ></todo-item>
+        </ol>
+
 			</div>
 	</div>
 </div>

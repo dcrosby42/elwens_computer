@@ -23,64 +23,16 @@
   </style>
 
   <script type="module">
-    import { onload } from "./myapp.js"
-    window.onload = onload
+    // import { onload } from "./myapp.js"
+    import startApp from "./vue-exp.js"
+    window.onload = function() {
+      window.app = startApp('#app')
+    }
   </script>
 </head>
 <body>
-	<div id="myapp" class="lcars-app-container">
-
-		<!-- HEADER ==================================================== -->
-
-		<div id="header" class="lcars-row header">
-
-			<div class="lcars-elbow left-bottom lcars-neon-carrot-bg"></div>
-			<!-- ELBOW -->
-
-			<!-- BAR WITH TITLE -->
-			<div class="lcars-bar horizontal lcars-neon-carrot-bg">
-        <div class="lcars-title right lcars-neon-carrot"> {{ main_title }} </div>
-			</div>
-
-			<!-- ROUNDED EDGE DECORATED -->
-			<!-- <div class="lcars&#45;bar horizontal right&#45;end decorated lcars&#45;neon&#45;carrot&#45;bg"></div> -->
-			<div class="lcars-bar horizontal decorated right-end lcars-neon-carrot-bg"></div>
-		</div>
-
-		<!-- SIDE MENU ================================================= -->
-
-		<div id="left-menu" class="lcars-column start-space lcars-u-1">
-      <div class="lcars-element">1234</div>
-			<!-- FILLER -->
-			<div class="lcars-bar lcars-u-1 lcars-neon-carrot-bg"></div>
-		</div>
-
-		<!-- FOOTER ==================================================== -->
-
-		<div id="footer" class="lcars-row ">
-			<!-- ELBOW -->
-			<div class="lcars-elbow left-top lcars-neon-carrot-bg"></div>
-			<!-- BAR -->
-			<div class="lcars-bar horizontal both-divider bottom lcars-neon-carrot-bg"></div>
-			<!-- ROUNDED EDGE -->
-			<div class="lcars-bar horizontal right-end decorated left-divider bottom lcars-neon-carrot-bg"></div>
-		</div>
-
-		<!-- MAIN CONTAINER -->
-		<div id="container">
-			<!-- COLUMN LAYOUT -->
-			<div class="lcars-column lcars-u-5">
-
-        <p>{{ message }}</p>
-        <ol>
-          <todo-item
-            v-for="item in todos"
-            v-bind:todo="item"
-            v-bind:key="item.text"
-          ></todo-item>
-        </ol>
-
-			</div>
+  <div id="app">
+    <star-trek-interface></star-trek-interface>
 	</div>
 </div>
 

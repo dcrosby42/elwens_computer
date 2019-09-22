@@ -1,34 +1,32 @@
 import NavItem from "./NavItem.js"
-import PageSample1 from "./PageSample1.js"
+import PageLongRangeScans from "./PageLongRangeScans.js"
 import PageAnimals from "./PageAnimals.js"
 
 export default {
-  props: [],
   data: function() {
     return {
       mainTitle: "COMPUTER",
-      message: "This is the message!",
+      currentPage: "page-long-range-scans",
       leftNav: [
-        { text: "1234", key: 1},
-        { text: "546L", key: 2 },
-        { text: "15-1.5", key: 3 },
+        { text: "SCANS", id: 1, page: "page-long-range-scans"},
+        { text: "ANIMALS", id: 2, page: "page-animals"},
+        { text: "15-1.5", id: 3 },
       ],
-      currentPage: "sample1",
     }
   },
-  components: {
-    NavItem,
-    PageSample1,
-    PageAnimals,
-  },
-  computed: {
-    currentPageComp: function(){
-      return "page-" + this.currentPage.toLowerCase()
+  methods:{
+    onNav: function(nav) {
+      console.log("Navigate",nav.id,nav.text,nav.page)
+      this.setPage(nav.page)
     },
+    setPage: function(page) {
+      if (page !== undefined) {
+        this.currentPage = page
+      }
+    }
   },
   template: `
 		<!-- PRE-HEADER ==================================================== -->
-
 
 		<!-- HEADER ==================================================== -->
 
@@ -54,7 +52,11 @@ export default {
 		<!-- SIDE MENU ================================================= -->
 
 		<div id="left-menu" class="lcars-column start-space lcars-u-1">
-      <NavItem v-for="item in leftNav" v-bind:nav="item" v-bind:key="item.key" ></NavItem>
+      <nav-item v-for="item in leftNav" 
+        v-bind:nav="item" 
+        v-bind:key="item.id" 
+        v-bind:activeNav="currentPage"
+        v-on:click="onNav" />
 			<!-- FILLER -->
 			<div class="lcars-bar lcars-u-1 lcars-neon-carrot-bg"></div>
 		</div>
@@ -72,8 +74,14 @@ export default {
 
 		<!-- MAIN CONTAINER -->
 		<div id="container">
-      <component v-bind:is="currentPageComp"></component>
+      <component v-bind:is="currentPage"></component>
     </div>
 
   </div>
-`}
+`,
+  components: {
+    NavItem,
+    PageLongRangeScans,
+    PageAnimals,
+  },
+}

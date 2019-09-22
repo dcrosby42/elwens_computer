@@ -14,6 +14,12 @@ export default {
       ],
     }
   },
+  created: function(page) {
+    let p = window.localStorage.getItem('currentPage')
+    if (p !== null) {
+      this.setPage(p)
+    }
+  },
   methods:{
     onNav: function(nav) {
       console.log("Navigate",nav.id,nav.text,nav.page)
@@ -22,8 +28,10 @@ export default {
     setPage: function(page) {
       if (page !== undefined) {
         this.currentPage = page
+        window.localStorage.setItem('currentPage',page)
       }
-    }
+    },
+
   },
   template: `
 		<!-- PRE-HEADER ==================================================== -->
@@ -55,7 +63,7 @@ export default {
       <nav-item v-for="item in leftNav" 
         v-bind:nav="item" 
         v-bind:key="item.id" 
-        v-bind:activeNav="currentPage"
+        v-bind:activePage="currentPage"
         v-on:click="onNav" />
 			<!-- FILLER -->
 			<div class="lcars-bar lcars-u-1 lcars-neon-carrot-bg"></div>

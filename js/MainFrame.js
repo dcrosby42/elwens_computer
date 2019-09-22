@@ -1,6 +1,7 @@
 import NavItem from "./NavItem.js"
 import PageLongRangeScans from "./PageLongRangeScans.js"
 import PageAnimals from "./PageAnimals.js"
+import {playSoundEvent} from "./sounds.js"
 
 export default {
   data: function() {
@@ -20,9 +21,11 @@ export default {
       this.setPage(p)
     }
   },
+  mounted: function(page) {
+    playSoundEvent("login")
+  },
   methods:{
     onNav: function(nav) {
-      console.log("Navigate",nav.id,nav.text,nav.page)
       this.setPage(nav.page)
     },
     setPage: function(page) {

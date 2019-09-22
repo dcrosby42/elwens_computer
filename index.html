@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>vuecars</title>
@@ -8,33 +9,43 @@
   <link rel="stylesheet" href="css/zoom-grid.css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js"></script>
+
   <style>
+    html,
+    body {
+      background: black
+    }
 
-  html, body { background: black }
-  p, h1, h2, h3 {
-    /* margin-top: 1em; */
-  }
+    p,
+    h1,
+    h2,
+    h3 {
+      /* margin-top: 1em; */
+    }
 
-	pre {
-		display: inline;
-    white-space: pre-line;
-		word-wrap: break-word;
-	}
+    pre {
+      display: inline;
+      white-space: pre-line;
+      word-wrap: break-word;
+    }
   </style>
 
   <script type="module">
     // import { onload } from "./myapp.js"
     import startApp from "./js/main.js"
-    window.onload = function() {
+    window.onload = function () {
       window.app = startApp('#app')
     }
   </script>
 </head>
+
 <body>
   <div id="app">
     <star-trek-interface></star-trek-interface>
-	</div>
-</div>
+  </div>
+  </div>
 
 </body>
+
 </html>

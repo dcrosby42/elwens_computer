@@ -72,6 +72,10 @@ const LcarsElement = {
       type: String,
       default: "",
     },
+    button:{
+      type: Boolean,
+      default: false,
+    },
   },
   methods:{
     rounding: function() {
@@ -88,13 +92,15 @@ const LcarsElement = {
   },
   computed: {
     classList: function() {
+      let button = this.button ? "button" : null
       return this.appendBases([
         "lcars-element",
         this.rounding(),
+        button,
       ])
     },
   },
-  template: `<div :class="classList"><slot>NCC 1707-D</slot></div>`
+  template: `<div :class="classList" v-on="$listeners"><slot>NCC 1707-D</slot></div>`
 } 
 
 const LcarsRow = {
@@ -137,6 +143,9 @@ const TabLeft = {
     round: {
       type: String,
       default: "left",
+    },
+    button: {
+      default: true,
     },
   },
 }

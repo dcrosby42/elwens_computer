@@ -1,0 +1,40 @@
+@keyframes zoom {
+  0% { background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px; }
+  25% { background-size:200px 200px, 200px 200px, 40px 40px, 40px 40px;}
+  50% { background-size:200px 200px, 200px 200px, 30px 30px, 30px 30px;}
+  75% { background-size:200px 200px, 200px 200px, 40px 40px, 40px 40px; }
+  100% { background-size:100px 100px, 100px 100px, 50px 50px, 50px 50px; }
+}
+
+.zoom-grid{
+  background-color: #013;
+  background-image: -webkit-linear-gradient(rgb(255,145,4) 2px, transparent 2px),
+  -webkit-linear-gradient(left, rgb(255,145,4) 2px, transparent 2px),
+  -webkit-linear-gradient(rgba(256,145,4,.3) 1px, transparent 1px),
+  -webkit-linear-gradient(left, rgba(255,145,4,.3) 1px, transparent 1px);
+  background-image: -moz-linear-gradient(rgb(255,145,4) 2px, transparent 2px),
+  -moz-linear-gradient(left, rgb(255,145,4) 2px, transparent 2px),
+  -moz-linear-gradient(rgba(256,145,4,.3) 1px, transparent 1px),
+  -moz-linear-gradient(left, rgba(255,145,4,.3) 1px, transparent 1px);
+  background-image: -o-linear-gradient(rgb(255,145,4) 2px, transparent 2px),
+  -o-linear-gradient(left, rgb(255,145,4) 2px, transparent 2px),
+  -o-linear-gradient(rgba(256,145,4,.3) 1px, transparent 1px),
+  -o-linear-gradient(left, rgba(255,145,4,.3) 1px, transparent 1px);
+  background-image: linear-gradient(rgb(255,145,4) 2px, transparent 2px),
+  linear-gradient(to right, rgb(255,145,4) 2px, transparent 2px),
+  linear-gradient(rgba(256,145,4,.3) 1px, transparent 1px),
+  linear-gradient(to right, rgba(255,145,4,.3) 1px, transparent 1px);
+  background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid white; */
+  /* border: 1px solid #fc6; */
+  /* border: 1px solid #f93; */
+  /* float: right; */
+  /* margin-right: 250px; */
+  /* margin-top: 10px; */
+  padding-left: 3px;
+  animation: zoom 8s infinite;
+}

@@ -1,4 +1,6 @@
 import NavItem from "./NavItem.js"
+import PageSample1 from "./PageSample1.js"
+import PageAnimals from "./PageAnimals.js"
 
 export default {
   props: [],
@@ -11,32 +13,42 @@ export default {
         { text: "546L", key: 2 },
         { text: "15-1.5", key: 3 },
       ],
+      currentPage: "sample1",
     }
   },
   components: {
     NavItem,
+    PageSample1,
+    PageAnimals,
   },
-  // computed: {
-  //   reversedMessage: function(){
-  //     return this.message.split('').reverse().join('')
-  //   },
-  // },
+  computed: {
+    currentPageComp: function(){
+      return "page-" + this.currentPage.toLowerCase()
+    },
+  },
   template: `
+		<!-- PRE-HEADER ==================================================== -->
+
+
 		<!-- HEADER ==================================================== -->
 
 	<div class="lcars-app-container">
 		<div id="header" class="lcars-row header">
 
-      <div class="lcars-elbow left-bottom lcars-danub-bg"></div>
-			<!-- ELBOW -->
 
-			<!-- BAR WITH TITLE -->
-			<div class="lcars-bar horizontal lcars-danub-bg">
-        <div class="lcars-title right lcars-neon-carrot"> {{ mainTitle }} </div>
-			</div>
+      <div id="" class="lcars-row">
+        <!-- ELBOW -->
+        <div class="lcars-elbow left-bottom lcars-neon-carrot-bg"></div>
 
-			<!-- ROUNDED EDGE DECORATED -->
-			<div class="lcars-bar horizontal right-end lcars-danub-bg"></div>
+        <!-- BAR WITH TITLE -->
+        <div class="lcars-bar horizontal lcars-neon-carrot-bg">
+          <div class="lcars-title right lcars-neon-carrot"> {{ mainTitle }} </div>
+        </div>
+
+        <!-- ROUNDED EDGE DECORATED -->
+        <div class="lcars-bar horizontal right-end decorated lcars-neon-carrot-bg"></div>
+      </div>
+
 		</div>
 
 		<!-- SIDE MENU ================================================= -->
@@ -60,12 +72,8 @@ export default {
 
 		<!-- MAIN CONTAINER -->
 		<div id="container">
-			<!-- COLUMN LAYOUT -->
-			<div class="lcars-column lcars-u-5">
+      <component v-bind:is="currentPageComp"></component>
+    </div>
 
-        <p>TODO</p>
-
-			</div>
-  </div>
   </div>
 `}

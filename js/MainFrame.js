@@ -1,7 +1,7 @@
 import NavItem from "./NavItem.js"
 import PageLongRangeScans from "./PageLongRangeScans.js"
 import PageAnimals from "./PageAnimals.js"
-import {playSoundEvent} from "./sounds.js"
+import {playSoundEvent,playKeyboardSound} from "./sounds.js"
 
 export default {
   data: function() {
@@ -23,9 +23,15 @@ export default {
   },
   mounted: function(page) {
     playSoundEvent("login")
+
+    window.addEventListener("keypress", function(e) {
+      playKeyboardSound(e)
+      // console.log(String.fromCharCode(e.keyCode));
+    });
   },
   methods:{
     onNav: function(nav) {
+      console.log("Navigate",nav.id,nav.text,nav.page)
       this.setPage(nav.page)
     },
     setPage: function(page) {

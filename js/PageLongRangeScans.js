@@ -5,10 +5,10 @@ export default {
   components: LcarsElements,
   template: `
     <lcars-row>
-      <lcars-column v-bind:width="10">
+      <lcars-column v-bind:width="8">
         <header-elbow-right title="LONG RANGE SCANS" color="danub" />
         <lcars-row>
-          <lcars-column v-bind:width="5" v-bind:height="5" fg-color="husk">
+          <lcars-column v-bind:width="3" v-bind:height="5" fg-color="husk">
             FSDK GJFH JKDFGHFDJKGHFDJ  FDSJ NGFDJ GFDNJGFDHJGDSH HG FSJGH DSJFHGSDFJJDSHGASD JHGDASJK GDSAHJ 
             FSDK GJFH JKDFGHFDJKGHFDJ  FDSJ NGFDJ GFDNJGFDHJGDSH HG FSJGH DSJFHGSDFJJDSHGASD JHGDASJK GDSAHJ 
             FSDK GJFH JKDFGHFDJKGHFDJ  FDSJ NGFDJ GFDNJGFDHJGDSH HG FSJGH DSJFHGSDFJJDSHGASD JHGDASJK GDSAHJ 

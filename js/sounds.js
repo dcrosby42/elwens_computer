@@ -14,6 +14,7 @@
 
 const Events = {
     login: "action/computerbeep_16.mp3",
+    keyPressed: "button/computerbeep_5.mp3",
     navMouseOver: "button/computerbeep_5.mp3",
     navPressed: "action/computerbeep_13.mp3",
     tableTabMouseOver: "button/computerbeep_5.mp3",
@@ -51,4 +52,12 @@ export function playSoundEvent(name) {
         console.log("No sound defined for",name)
     }
     return null
+}
+
+// Given a browser keyboard event, play a sound
+// Event API doc: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+export function playKeyboardSound(event) {
+    playSoundEvent("keyPressed")
+    console.log(event)
+      // console.log(String.fromCharCode(e.keyCode));
 }
